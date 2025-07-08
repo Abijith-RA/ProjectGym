@@ -4,29 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Register - FuelBox</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-  <header>
-    <div class="logo">FuelBox</div>
+  <!-- Same green header -->
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">FuelBox</div>
+      <nav class="main-nav">
+        <div class="profile-dropdown">
+          <img src="images/profile.png" alt="Profile" class="profile-img">
+          <div class="dropdown-content">
+            <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+            <a href="registration.html"><i class="fas fa-user-plus"></i> Register</a>
+          </div>
+        </div>
+      </nav>
+    </div>
   </header>
 
-  <main class="auth-page">
-    <div class="auth-container">
-      <h1>Join FuelBox</h1>
+  <!-- Auth Content -->
+  <main class="container auth-container">
+    <div class="auth-form">
+      <h2><i class="fas fa-user-plus"></i> Create Account</h2>
       <form id="register-form">
-        <input type="email" id="reg-email" placeholder="Email" required>
-        <input type="password" id="reg-password" placeholder="Password" required>
-        <input type="text" id="reg-name" placeholder="Full Name" required>
-        <button type="submit">Register</button>
+        <div class="form-group">
+          <label for="reg-name">Full Name</label>
+          <input type="text" id="reg-name" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-email">Email</label>
+          <input type="email" id="reg-email" required>
+        </div>
+        <div class="form-group">
+          <label for="reg-password">Password</label>
+          <input type="password" id="reg-password" required>
+        </div>
+        <button type="submit" class="btn-primary">
+          <i class="fas fa-user-plus"></i> Register
+        </button>
       </form>
-      <p>Already have an account? <a href="login.html">Login here</a></p>
-      <p><a href="index.html">Back to Home</a></p>
+      <div class="auth-links">
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+        <p><a href="index.html"><i class="fas fa-home"></i> Back to Home</a></p>
+      </div>
     </div>
   </main>
 
-  <script src="js/supabase.js"></script>
+  <!-- Same green footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; <span id="current-year"></span> FuelBox. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Set current year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+  </script>
   <script src="js/auth.js"></script>
 </body>
 </html>
