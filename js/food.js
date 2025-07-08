@@ -146,7 +146,7 @@ function createFoodItemCard(item) {
       </div>
       
       <div class="food-footer">
-        <span class="price">$${item.price?.toFixed(2) || '0.00'}</span>
+        <span class="price">₹${item.price?.toFixed(2) || '0.00'}</span>
         <button data-id="${item.id}">
           <i class="fas fa-cart-plus"></i> Add
         </button>
