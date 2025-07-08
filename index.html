@@ -2,41 +2,72 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Supabase Auth</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FuelBox - Gym Nutrition</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-  <div id="auth-section">
-    <h1>Supabase Login / Register</h1>
-
-    <div class="form-container">
-      <h2>Register</h2>
-      <form id="register-form">
-        <input type="email" id="reg-email" placeholder="Email" required>
-        <input type="password" id="reg-password" placeholder="Password" required>
-        <input type="text" id="reg-name" placeholder="Full Name" required>
-        <button type="submit">Register</button>
-      </form>
+  <!-- Green Header Bar -->
+  <header class="main-header">
+    <div class="container">
+      <div class="logo">FuelBox</div>
+      <nav class="main-nav">
+        <div class="profile-dropdown">
+          <img src="images/profile.png" alt="Profile" class="profile-img">
+          <div class="dropdown-content">
+            <a href="login.html"><i class="fas fa-sign-in-alt"></i> Login</a>
+            <a href="registration.html"><i class="fas fa-user-plus"></i> Register</a>
+          </div>
+        </div>
+      </nav>
     </div>
+  </header>
 
-    <div class="form-container">
-      <h2>Login</h2>
-      <form id="login-form">
-        <input type="email" id="login-email" placeholder="Email" required>
-        <input type="password" id="login-password" placeholder="Password" required>
-        <button type="submit">Login</button>
-      </form>
+  <!-- Main Content -->
+  <main class="container main-content">
+    <section class="food-menu">
+      <h2><i class="fas fa-utensils"></i> Our Meal Plans</h2>
+      <div id="food-list" class="food-grid">
+        <!-- Loading placeholder -->
+        <div class="food-item loading">
+          <div class="food-img-placeholder"></div>
+          <div class="food-info">
+            <h3>Loading meals...</h3>
+            <p>Fetching our premium options</p>
+            <div class="food-footer">
+              <span class="price">$--.--</span>
+              <button disabled><i class="fas fa-spinner fa-spin"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; <span id="current-year"></span> FuelBox. All rights reserved.</p>
     </div>
-  </div>
+  </footer>
 
-  <div id="dashboard" class="dashboard">
-    <h1>Welcome to your Dashboard</h1>
-    <p id="welcome-message"></p>
-    <button id="logout-btn">Logout</button>
-  </div>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="js/supabase.js"></script>
   <script src="js/auth.js"></script>
+  <script src="js/food.js"></script>
+  <script>
+    // Set current year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    
+    // Profile image fallback
+    document.addEventListener('DOMContentLoaded', function() {
+      const profileImg = document.querySelector('.profile-img');
+      profileImg.onerror = function() {
+        this.src = 'https://via.placeholder.com/80/27ae60/ffffff?text=FB';
+        this.style.border = 'none';
+      };
+    });
+  </script>
 </body>
 </html>
